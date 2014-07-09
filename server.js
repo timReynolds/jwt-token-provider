@@ -3,12 +3,13 @@ var express = require('express')
  , bodyParser = require('body-parser')
  , port = process.env.PORT || 1546
  , jwt = require('jsonwebtoken')
+ , _ = require('underscore')
  , config = require('./config.json')
  , app = express();
 
 var cert = fs.readFileSync(config.cert)
  , certOptions = {algorithm: 'RS256', expiresInMinutes: 30}
- , certPayload = {}
+ , certPayload = {user: 'tim', foo: 'bar'}
  , response = {};
 
 if(!config) {
@@ -38,7 +39,7 @@ app.post('/',actionLogin);
 app.post('/login',actionLogin);
 
 function actionLogin(req, res) {
-	certPayload = req.body;
+  certPayload = _.extend(certPayload, req.body);
 	certOptions.audience = req.body.app;
 	response.token = jwt.sign(certPayload, cert, certOptions);
 	res.send(response);
