@@ -1,4 +1,4 @@
-NodeJs JWT Token Provide 
+NodeJs JWT Token Provider
 ==================
 
 Demo NodeJS token provider using RS256 via jsonwebtoken. 
