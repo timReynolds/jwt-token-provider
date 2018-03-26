@@ -11,7 +11,7 @@
   "dependencies": {
     "body-parser": "~1.4.3",
     "express": "~4.4.4",
-    "jsonwebtoken": "~0.4.0",
+    "jsonwebtoken": "~8.2.0",
     "underscore": "^1.6.0"
   }
 }
